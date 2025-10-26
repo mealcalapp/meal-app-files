@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Meal Calculation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mealcalapp/meal-app-files/style.css">
+</head>
+<body>
+
+  <!-- Manager & Month -->
+  <div id="multiForm" style="display: flex; justify-content: center; gap: 10px; margin-top: -20px;">
+    <div class="notched">
+      <input type="text" id="managerInput" id="manager">
+      <label for="manager">Manager</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+    <div class="notched">
+      <input type="text" placeholder=" " id="month">
+      <label for="month">Month</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+    <div id="comparisonResult" style="margin-top:7px; font-weight:250px;"></div> 
+  </div>
+
+  <!-- Table -->
+  <table id="mealTable" style="margin-top:-10px;">
+    <thead>
+      <tr>
+        <th>Serial</th>
+        <th>Name</th>
+        <th>Deposit Tk</th>
+        <th>Meal</th>
+        <th>Meal Rate</th>
+        <th>Meal Cost</th>
+        <th>Additional Cost</th>
+        <th>Total Cost</th>
+        <th class="dueHead">Due</th>
+        <th class="refundHead">Refund</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+ <!-- Notice Box -->
+    <div id="noticeBox" class="shine-btn" style="background-color: dodgerblue; color: white; padding: 5px; border-radius: 5px; margin-top: -10px; text-align: center; display: flex; justify-content: center; align-items: center;">
+      নভেম্বর মাসের ৫ তারিখের মধ্যে সকল লেনদেন পরিশোধ করবেন, ধন্যবাদ। 
+      <span style="display: flex; align-items: center;">
+        <img src="https://www.logo.wine/a/logo/BKash/BKash-Icon2-Logo.wine.svg" alt="bKash" style="height:30px; vertical-align: middle;">
+        bKash (+charge): 01761561321
+      </span>
+    </div>
+
+  <!-- Controls -->
+  <div class="controls" id="multiForm">
+    <div class="notched">
+      <input type="number" id="memberCount" id="members" oninput="generateTable()">
+      <label for="members">Members</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+    <div class="notched">
+      <input type="number" id="totalMeal" id="meal">
+      <label for="meal">Meal</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+    <div class="notched">
+      <input type="number" id="bazarCost" id="bazar">
+      <label for="bazar">Bazar Cost</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+    <div class="notched filled">
+      <input type="" id="mealRateBox" readonly value="0.00">
+      <label for="mealRateBox">Meal Rate</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+    <div class="notched">
+      <input type="number" id="additionalCost" id="additional">
+      <label for="additional">Additional</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+    <div class="notched filled">
+      <input type="" id="addCostRateBox" readonly value="0">
+      <label for="addCostRateBox">Additional Cost</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+  </div>
+  <div class="controls" id="multiForm" style="justify-content: space-evenly;">
+    <h4 style="color:#333;">Compare with Previous Month 👉</h4>
+    <div class="notched">
+      <input type="number" id="prevMealRate" oninput="compareRates()" id="preMeal">
+      <label for="preMeal">Pre Meal Rate</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+    <div class="notched">
+      <input type="number" id="prevAddCostRate" oninput="compareRates()" id="preAddCost">
+      <label for="preAddCost">Pre Add Cost</label>
+      <span class="outline"></span>
+      <span class="notch"></span>
+    </div>
+     <div class="control-item">
+      <label>Notice Control:</label>
+      <input type="text" id="monthInput" placeholder="Next Month" style="padding:5px; border-radius:5px;">
+      <input type="number" id="dateInput" placeholder="Last Date" style="padding:5px; border-radius:5px;">
+      <input type="number" id="bkashInput" placeholder="bKash Account" style="padding:5px; border-radius:5px;"><br>
+      <button onclick="updateNotice()" class="shine-btn" style="padding:5px 10px; color: white; border:none; border-radius:5px;">Update</button>
+    </div>
+  </div>
+
+  <div class="control-item">
+    <button id="saveBtn" class="shine-btn">💾 Save as CSV</button>
+    <button id="pdfBtn" class="shine-btn">Save as PDF</button>
+  </div>
+
+  <!-- JS Start -->
+  <script src="https://cdn.jsdelivr.net/gh/mealcalapp/meal-app-files/app.js"></script>
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.1/jspdf.plugin.autotable.min.js"></script>
+
+  <div style="text-align:center; margin-top:20px; font-size:13px; color:#555;">
+    Designed by <a href="https://www.facebook.com/officiall.sk" target="_blank" style="color:#3182ce;font-weight:bold;text-decoration:none;">SK JISAN</a>
+  </div>
+
+</body>
+</html>
