@@ -1,4 +1,7 @@
 body {
+      width: 100%;       
+      max-width: 800px;   
+      margin: 0 auto;
       font-family: "Segoe UI", sans-serif;
       background: #fff;
       padding: 30px;
