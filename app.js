@@ -274,52 +274,6 @@ generateTable();
     `;
   }
 
-  (function() {
-    const allNotched = document.querySelectorAll('#multiForm .notched');
-
-    allNotched.forEach(wrapper => {
-      const input = wrapper.querySelector('input');
-      const label = wrapper.querySelector('label');
-      const notch = wrapper.querySelector('.notch');
-
-      function setNotchWidth() {
-      notch.textContent = label.textContent;
-      notch.style.width = 'auto';
-      const w = notch.getBoundingClientRect().width;
-      notch.style.width = (w + 1) + 'px';
-      if (!wrapper.classList.contains('focused') && !wrapper.classList.contains('filled')) {
-        notch.style.width = '0px';
-      }
-    }
-
-      function updateNotchState() {
-        if (input.value && input.value.toString().trim() !== '') {
-          wrapper.classList.add('filled');
-        } else {
-          wrapper.classList.remove('filled');
-        }
-        setNotchWidth();
-      }
-
-      input.addEventListener('focus', () => {
-        wrapper.classList.add('focused');
-        setNotchWidth();
-      });
-      input.addEventListener('blur', () => {
-        wrapper.classList.remove('focused');
-        updateNotchState();
-      });
-      input.addEventListener('input', updateNotchState);
-
-      // init on load
-      document.addEventListener('DOMContentLoaded', updateNotchState);
-      window.addEventListener('resize', setNotchWidth);
-
-      // initialize immediately
-      setNotchWidth();
-      updateNotchState();
-    });
-  })();
   // Button Animation
   const buttons = document.querySelectorAll(".shine-btn");
   buttons.forEach(btn => {
