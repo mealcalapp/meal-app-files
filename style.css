@@ -123,7 +123,7 @@ body {
         twinkle 1.5s ease-in-out infinite 0.7s;
     }
   
-   .input-group {
+    .input-group {
       position: relative;
       margin-bottom: 20px;
     }
