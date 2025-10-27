@@ -123,92 +123,55 @@ body {
         twinkle 1.5s ease-in-out infinite 0.7s;
     }
   
-    .notched {
+    .input-group {
       position: relative;
-      margin: 16px 0; 
-      font-family: "Inter", "Roboto", sans-serif;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      max-width: 170px;
+      margin-bottom: 20px;
     }
 
-    .notched input {
-      width: 100%;
-      padding: 7px 11px 5px 11px; 
-      font-size: 12px;
-      border: none;
-      outline: none;
-      background: transparent;
-      color: #222;
-      position: relative;
-      z-index: 2;
-      text-align: center;        
-      box-sizing: border-box;   
-      overflow: hidden;         
-    }
-
-    .notched .outline {
-      position: absolute;
-      inset: 0;
-      border-radius: 8px;
-      border: 1.6px solid #d0d0d0;
-      pointer-events: none;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .notched.focused .outline {
-      border-color: #666;
-      box-shadow: 0 0 0 4px rgba(63, 81, 181, 0.08);
-    }
-
-    .notched label {
-      position: absolute;
-      top: 8px; 
-      left: 14px;
-      color: #666;
-      font-size: 12px;
-      background: #fff;
-      padding: 0 4px; 
-      transform-origin: left top;
-      transition: all 0.25s ease;
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    .notched.focused label,
-    .notched.filled label {
-      top: -8px; 
-      font-size: 15px;
-      color: #666;
-      transform: scale(0.88);
-    }
-
-    .notched .notch {
-      position: absolute;
-      top: -1.2px;
-      left: 10px;
-      height: 18px; 
-      padding: 0 4px;
-      background: #fff;
-      transition: width 0.25s ease;
-      overflow: hidden;
-      white-space: nowrap; 
-      text-overflow: ellipsis; 
-      pointer-events: none;
-      color: transparent;
-      border-radius: 4px;
-      z-index: 1;
-      max-width: calc(100% - 20px); 
-    }
-
-    .notched.focused .notch,
-    .notched.filled .notch {
+    .input-field {
       width: auto;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 13px;
+      outline: none;
+      text-align: center; 
     }
 
-    .notched input:focus {
-      caret-color: #666;
+    .input-label {
+      position: absolute;
+      top: 6px; 
+      left: 7px;
+      color: #888;
+      font-size: 13px;
+      transition: all 0.2s ease;
+      pointer-events: none;
+      background-color: #fff;
+      padding: 0 4px;
+    }
+    #mealRateBox + .input-label {
+        top: -8px;
+        left: 7px;
+        font-size: 11px;
+        color: #007bff;
+        background: white;
+        padding: 0 4px;
+        }
+    #addCostRateBox + .input-label {
+        top: -8px;
+        left: 7px;
+        font-size: 11px;
+        color: #007bff;
+        background: white;
+        padding: 0 4px;
+        }
+
+    .input-field:focus + .input-label,
+    .input-field:not(:placeholder-shown):valid + .input-label {
+      top: -8px;
+      left: 7px;
+      font-size: 11px;
+      color: dodgerblue;
     }
 
     input[type=number]::-webkit-outer-spin-button,
