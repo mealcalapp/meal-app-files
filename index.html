@@ -146,8 +146,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.1/jspdf.plugin.autotable.min.js"></script>
 
   <div style="text-align:center; margin-top:20px; font-size:13px; color:#555;">
-    Designed by <a href="https://www.facebook.com/officiall.sk" target="_blank" style="color:#3182ce;font-weight:bold;text-decoration:none;">SK JISAN</a>
+    <span style="font-size:18px; vertical-align:middle;">&copy;</span>
+    <a href="https://www.facebook.com/officiall.sk" target="_blank" style="color:#3182ce; font-weight:bold; text-decoration:none; margin:0 5px; vertical-align:middle;">SK JISAN</a>
+    <span id="currentYear" style="vertical-align:middle;"></span>
   </div>
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
